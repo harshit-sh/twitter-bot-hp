@@ -14,10 +14,18 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
+def chunkstring(string, length):
+    return (string[0+i:length+i] for i in range(0, len(string), length))
+
 with open(argfile, "r") as f:
     data = f.read().replace('\n', ' ')
 text_list = data.split(".")
 
 for line in text_list:
-    api.update_status(status=line)
+    if len(line) > 140:
+        tmp = list(line, 140)
+        for i in range(len(tmp)):
+            api.update_status(status=i)
+    else:
+        api.update_status(status=line)
     time.sleep(500)
