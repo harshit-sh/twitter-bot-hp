@@ -24,7 +24,7 @@ text_list = data.split(".")
 for line in text_list:
     if len(line) > 140:
         tmp = list(chunkstring(line, 140))
-        for i in range(len(tmp)):
+        for i in tmp:
             api.update_status(status=i)
     else:
         api.update_status(status=line)
