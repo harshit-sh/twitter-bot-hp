@@ -7,4 +7,5 @@ A twitter bot which tweets Harry Potter books. Currently tweeting [Part 1](https
 Used tweepy to connect with Twitter. Deployed the bot to Heroku. 
 
 **ToDo**
+
 Shift to DigitalOcean.
