@@ -5,7 +5,3 @@ A [twitter bot](twitter.com/bot4harrypotter) which tweets Harry Potter books. Cu
 **Technologies used**
 
 Used [tweepy](https://github.com/tweepy/tweepy) to connect with Twitter. Deployed the bot to [Heroku](https://www.heroku.com). 
-
-**ToDo**
-
-Shift to DigitalOcean.
