@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# Author: Harshit Sharma <hsharma1205@gmail.com>
+# License: MIT
 
 import tweepy, time, sys, os
 
