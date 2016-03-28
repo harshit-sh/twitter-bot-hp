@@ -14,18 +14,21 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-def chunkstring(string, length):
+# method to get chunks of string to limit the size of
+# tweets to 140 characters
+def chunkString(string, length):
     return (string[0+i:length+i] for i in range(0, len(string), length))
 
 with open(argfile, "r") as f:
-    data = f.read().replace('\n', ' ')
-text_list = data.split(".")
+    data = f.read()
+text_list = data.split("\n")
+text_list = filter(None, text_list) # Remove empty strings
 
 for line in text_list:
     if len(line) > 140:
-        tmp = list(chunkstring(line, 140))
+        tmp = list(chunkString(line, 140))
         for i in tmp:
             api.update_status(status=i)
     else:
         api.update_status(status=line)
-    time.sleep(900)
+    time.sleep(600)
